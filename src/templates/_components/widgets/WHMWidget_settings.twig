@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * WHM plugin for Craft CMS
+ *
+ * WHMWidget Widget Settings
+ *
+ * @author    Dodo Technologies Ltd
+ * @copyright Copyright (c) 2020 Dodo Technologies Ltd
+ * @link      https://www.dinkydodo.com
+ * @package   WHM
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("dinkydodoukwhm\\whm\\assetbundles\\whm\\WHMAsset") %}
+
+{{ forms.textField({
+    label: 'Message',
+    instructions: 'Enter a message here.',
+    id: 'message',
+    name: 'message',
+    value: widget['message']})
+}}

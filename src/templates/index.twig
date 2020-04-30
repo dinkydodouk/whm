@@ -1,0 +1,40 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * WHM plugin for Craft CMS 3.x
+ *
+ * WHM index.twig
+ *
+ * @author    Dodo Technologies Ltd
+ * @copyright Copyright (c) 2020 Dodo Technologies Ltd
+ * @link      https://www.dinkydodo.com
+ * @package   WHM
+ * @since     1.0.0
+ */
+#}
+
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("dinkydodoukwhm\\whm\\assetbundles\\whm\\WHMAsset") %}
+{% do view.registerAssetBundle("dinkydodoukwhm\\whm\\assetbundles\\indexcpsection\\IndexCPSectionAsset") %}
+
+{% set docsUrl = "https://github.com/dinkydodouk/whm/blob/master/README.md" %}
+
+{% set title = "WHM" %}
+
+{% set pluginCpUrl = url('whm') %}
+
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@dinkydodoukwhm/whm/assetbundles/indexcpsection/dist', true) ~ '/img/Index-icon.svg' %}
+
+{% set extraPageHeaderHtml %}
+    <div class="buttons">
+        <a href="{{ pluginCpUrl }}" class="btn submit add icon">{{ "Click Me!"|t('whm') }}</a>
+    </div>
+{% endset %}
+
+{% set content %}
+    <h2>{{ "Index CP Section body goes here"|t('whm') }}</h2>
+    <img src="{{ iconUrl }}" height="64" width="64" />
+    <p class="textline"></p>
+{% endset %}

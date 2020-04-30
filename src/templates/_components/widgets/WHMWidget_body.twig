@@ -1,0 +1,20 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * WHM plugin for Craft CMS
+ *
+ * WHMWidget Widget Body
+ *
+ * @author    Dodo Technologies Ltd
+ * @copyright Copyright (c) 2020 Dodo Technologies Ltd
+ * @link      https://www.dinkydodo.com
+ * @package   WHM
+ * @since     1.0.0
+ */
+#}
+
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@dinkydodoukwhm/whm/assetbundles/whmwidgetwidget/dist', true) ~ '/img/WHMWidget-icon.svg' %}
+
+<img src="{{ iconUrl }}" height="64" width="64" />
+
+<p>{{ message }}</p>
