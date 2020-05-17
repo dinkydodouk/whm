@@ -1,22 +1,13 @@
 <?php
-/**
- * WHM plugin for Craft CMS 3.x
- *
- * A link to the Dodo WHM server
- *
- * @link      https://www.dinkydodo.com
- * @copyright Copyright (c) 2020 Dodo Technologies Ltd
- */
 
-namespace dinkydodoukwhm\whm;
+namespace dinkydodouk\whm;
 
-use dinkydodoukwhm\whm\services\WHMService as WHMServiceService;
-use dinkydodoukwhm\whm\variables\WHMVariable;
-use dinkydodoukwhm\whm\twigextensions\WHMTwigExtension;
-use dinkydodoukwhm\whm\models\Settings;
-use dinkydodoukwhm\whm\fields\WHMField as WHMFieldField;
-use dinkydodoukwhm\whm\utilities\WHMUtility as WHMUtilityUtility;
-use dinkydodoukwhm\whm\widgets\WHMWidget as WHMWidgetWidget;
+use dinkydodouk\whm\services\WHMService as WHMServiceService;
+use dinkydodouk\whm\variables\WHMVariable;
+use dinkydodouk\whm\twigextensions\WHMTwigExtension;
+use dinkydodouk\whm\models\Settings;
+use dinkydodouk\whm\fields\WHMField as WHMFieldField;
+use dinkydodouk\whm\widgets\WHMWidget as WHMWidgetWidget;
 
 use Craft;
 use craft\base\Plugin;
@@ -26,7 +17,6 @@ use craft\console\Application as ConsoleApplication;
 use craft\web\UrlManager;
 use craft\services\Elements;
 use craft\services\Fields;
-use craft\services\Utilities;
 use craft\web\twig\variables\CraftVariable;
 use craft\services\Dashboard;
 use craft\events\RegisterComponentTypesEvent;
@@ -37,24 +27,14 @@ use yii\base\Event;
 /**
  * Class WHM
  *
- * @author    Dodo Technologies Ltd
- * @package   WHM
- * @since     1.0.0
- *
  * @property  WHMServiceService $wHMService
  */
 class WHM extends Plugin
 {
-    // Static Properties
-    // =========================================================================
-
     /**
      * @var WHM
      */
     public static $plugin;
-
-    // Public Properties
-    // =========================================================================
 
     /**
      * @var string
@@ -71,9 +51,6 @@ class WHM extends Plugin
      */
     public $hasCpSection = true;
 
-    // Public Methods
-    // =========================================================================
-
     /**
      * @inheritdoc
      */
@@ -85,22 +62,24 @@ class WHM extends Plugin
         Craft::$app->view->registerTwigExtension(new WHMTwigExtension());
 
         if (Craft::$app instanceof ConsoleApplication) {
-            $this->controllerNamespace = 'dinkydodoukwhm\whm\console\controllers';
+            $this->controllerNamespace = 'dinkydodouk\whm\console\controllers';
         }
 
+        /*
         Event::on(
             UrlManager::class,
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['siteActionTrigger1'] = 'whm/default';
+                $event->rules['whm'] = 'whm/customers';
             }
         );
+        */
 
         Event::on(
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['cpActionTrigger1'] = 'whm/default/do-something';
+                $event->rules['whm/customers'] = 'whm/customers';
             }
         );
 
@@ -116,14 +95,6 @@ class WHM extends Plugin
             Fields::EVENT_REGISTER_FIELD_TYPES,
             function (RegisterComponentTypesEvent $event) {
                 $event->types[] = WHMFieldField::class;
-            }
-        );
-
-        Event::on(
-            Utilities::class,
-            Utilities::EVENT_REGISTER_UTILITY_TYPES,
-            function (RegisterComponentTypesEvent $event) {
-                $event->types[] = WHMUtilityUtility::class;
             }
         );
 
@@ -164,9 +135,6 @@ class WHM extends Plugin
         );
     }
 
-    // Protected Methods
-    // =========================================================================
-
     /**
      * @inheritdoc
      */
@@ -186,5 +154,20 @@ class WHM extends Plugin
                 'settings' => $this->getSettings()
             ]
         );
+    }
+
+    public function getCpNavItem()
+    {
+        $item = parent::getCpNavItem();
+        $item['subnav'] = [
+            'dashboard' => ['label' => 'Dashboard', 'url' => 'whm'],
+            'customers' => ['label' => 'Customers', 'url' => 'whm/customers'],
+            'products' => ['label' => 'Products', 'url' => 'whm/products'],
+            'orders' => ['label' => 'Orders', 'url' => 'whm/orders'],
+            'billing' => ['label' => 'Billing', 'url' => 'whm/billing'],
+            'support' => ['label' => 'Support', 'url' => 'whm/support'],
+            'reports' => ['label' => 'Reports', 'url' => 'whm/reports']
+        ];
+        return $item;
     }
 }

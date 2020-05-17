@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2020 Dodo Technologies Ltd
  */
 
-namespace dinkydodoukwhm\whm\assetbundles\whmwidgetwidget;
+namespace dinkydodouk\whm\assetbundles\whmwidgetwidget;
 
 use Craft;
 use craft\web\AssetBundle;
@@ -29,7 +29,7 @@ class WHMWidgetWidgetAsset extends AssetBundle
      */
     public function init()
     {
-        $this->sourcePath = "@dinkydodoukwhm/whm/assetbundles/whmwidgetwidget/dist";
+        $this->sourcePath = "@dinkydodouk/whm/assetbundles/whmwidgetwidget/dist";
 
         $this->depends = [
             CpAsset::class,

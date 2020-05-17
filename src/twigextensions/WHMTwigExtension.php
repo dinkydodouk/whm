@@ -8,9 +8,9 @@
  * @copyright Copyright (c) 2020 Dodo Technologies Ltd
  */
 
-namespace dinkydodoukwhm\whm\twigextensions;
+namespace dinkydodouk\whm\twigextensions;
 
-use dinkydodoukwhm\whm\WHM;
+use dinkydodouk\whm\WHM;
 
 use Craft;
 

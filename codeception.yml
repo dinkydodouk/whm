@@ -32,7 +32,7 @@ modules:
       migrations: []
       plugins:
         whm:
-          class: '\dinkydodoukwhm\whm\WHM'
+          class: '\dinkydodouk\whm\WHM'
           handle: whm
       cleanup: true
       transaction: true

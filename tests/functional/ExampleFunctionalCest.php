@@ -1,6 +1,6 @@
 <?php
 
-namespace dinkydodoukwhm\whmtests\acceptance;
+namespace dinkydodouk\whmtests\acceptance;
 
 use Craft;
 use FunctionalTester;

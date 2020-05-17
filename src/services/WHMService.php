@@ -1,16 +1,8 @@
 <?php
-/**
- * WHM plugin for Craft CMS 3.x
- *
- * A link to the Dodo WHM server
- *
- * @link      https://www.dinkydodo.com
- * @copyright Copyright (c) 2020 Dodo Technologies Ltd
- */
 
-namespace dinkydodoukwhm\whm\services;
+namespace dinkydodouk\whm\services;
 
-use dinkydodoukwhm\whm\WHM;
+use dinkydodouk\whm\WHM;
 
 use Craft;
 use craft\base\Component;
@@ -22,19 +14,41 @@ use craft\base\Component;
  */
 class WHMService extends Component
 {
-    // Public Methods
-    // =========================================================================
+    private $whmUrl;
+    private $cpanelUrl;
+    private $username;
+    private $apiKey;
 
-    /*
-     * @return mixed
-     */
-    public function exampleService()
+    public function __construct()
     {
-        $result = 'something';
-        // Check our Plugin's settings for `someAttribute`
-        if (WHM::$plugin->getSettings()->someAttribute) {
-        }
+        $hostname = WHM::getInstance()->getSettings()->hostname;
+        $port = WHM::getInstance()->getSettings()->portNumber;
 
-        return $result;
+        $this->whmUrl = $hostname.":".$port."/json-api/";
+        $this->cpanelUrl = $hostname.":".$port."/json-api/cpanel?api.version=1";
+        $this->username = WHM::getInstance()->getSettings()->username;
+        $this->apiKey = WHM::getInstance()->getSettings()->whmApiKey;
+    }
+
+    /**
+     * return string
+     */
+    public function listAccts($criteria = NULL)
+    {
+        $array = ($criteria != NULL) ? "&".http_build_query($criteria) : "";
+        $query = $this->whmUrl."listaccts?api.version=1$array";
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST,2);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER,1);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER,1);
+
+        $header[0] = "Authorization: whm $this->username:$this->apiKey";
+        curl_setopt($curl,CURLOPT_HTTPHEADER,$header);
+        curl_setopt($curl, CURLOPT_URL, $query);
+
+        $result = curl_exec($curl);
+
+        return json_decode($result);
     }
 }

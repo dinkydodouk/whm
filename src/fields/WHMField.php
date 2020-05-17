@@ -8,10 +8,10 @@
  * @copyright Copyright (c) 2020 Dodo Technologies Ltd
  */
 
-namespace dinkydodoukwhm\whm\fields;
+namespace dinkydodouk\whm\fields;
 
-use dinkydodoukwhm\whm\WHM;
-use dinkydodoukwhm\whm\assetbundles\whmfieldfield\WHMFieldFieldAsset;
+use dinkydodouk\whm\WHM;
+use dinkydodouk\whm\assetbundles\whmfieldfield\WHMFieldFieldAsset;
 
 use Craft;
 use craft\base\ElementInterface;

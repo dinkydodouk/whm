@@ -8,9 +8,9 @@
  * @copyright Copyright (c) 2020 Dodo Technologies Ltd
  */
 
-namespace dinkydodoukwhm\whm\console\controllers;
+namespace dinkydodouk\whm\console\controllers;
 
-use dinkydodoukwhm\whm\WHM;
+use dinkydodouk\whm\WHM;
 
 use Craft;
 use yii\console\Controller;

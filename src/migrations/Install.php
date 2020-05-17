@@ -8,9 +8,9 @@
  * @copyright Copyright (c) 2020 Dodo Technologies Ltd
  */
 
-namespace dinkydodoukwhm\whm\migrations;
+namespace dinkydodouk\whm\migrations;
 
-use dinkydodoukwhm\whm\WHM;
+use dinkydodouk\whm\WHM;
 
 use Craft;
 use craft\config\DbConfig;

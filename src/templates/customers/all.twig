@@ -1,0 +1,36 @@
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("dinkydodouk\\whm\\assetbundles\\whm\\WHMAsset") %}
+{% do view.registerAssetBundle("dinkydodouk\\whm\\assetbundles\\indexcpsection\\IndexCPSectionAsset") %}
+
+{% set docsUrl = "https://github.com/dinkydodouk/whm/blob/master/README.md" %}
+
+{% set title = "WHM - Clients"|t('whm') %}
+
+{% set pluginCpUrl = url('whm/customers') %}
+
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@dinkydodouk/whm/assetbundles/indexcpsection/dist', true) ~ '/img/Index-icon.svg' %}
+
+{% block header %}
+    <div id="page-title" class="flex flex-nowrap has-toolbar">
+        {% block pageTitle %}
+            {% if title is defined and title|length %}
+                <h1 title="{{ title }}">{{ title }}</h1>
+            {% endif %}
+        {% endblock %}
+        {% block contextMenu %}{% endblock %}
+    </div>
+    {% include "whm/elements/toolbar.twig" %}
+{% endblock %}
+
+{% block sidebar %}
+    Sidebar
+{% endblock %}
+
+{% block content %}
+    <h1>{{ contentTitle }}</h1>
+    {% for row in listTable %}
+        <p>{{ row.domain }}</p>
+    {% endfor %}
+{% endblock %}

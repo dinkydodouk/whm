@@ -10,14 +10,15 @@
  * @link      https://www.dinkydodo.com
  * @package   WHM
  * @since     1.0.0
+
  */
 #}
 
 {% extends "_layouts/cp" %}
 {% import "_includes/forms" as forms %}
 
-{% do view.registerAssetBundle("dinkydodoukwhm\\whm\\assetbundles\\whm\\WHMAsset") %}
-{% do view.registerAssetBundle("dinkydodoukwhm\\whm\\assetbundles\\indexcpsection\\IndexCPSectionAsset") %}
+{% do view.registerAssetBundle("dinkydodouk\\whm\\assetbundles\\whm\\WHMAsset") %}
+{% do view.registerAssetBundle("dinkydodouk\\whm\\assetbundles\\indexcpsection\\IndexCPSectionAsset") %}
 
 {% set docsUrl = "https://github.com/dinkydodouk/whm/blob/master/README.md" %}
 
@@ -25,7 +26,7 @@
 
 {% set pluginCpUrl = url('whm') %}
 
-{% set iconUrl = view.getAssetManager().getPublishedUrl('@dinkydodoukwhm/whm/assetbundles/indexcpsection/dist', true) ~ '/img/Index-icon.svg' %}
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@dinkydodouk/whm/assetbundles/indexcpsection/dist', true) ~ '/img/Index-icon.svg' %}
 
 {% set extraPageHeaderHtml %}
     <div class="buttons">

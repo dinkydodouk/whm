@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2020 Dodo Technologies Ltd
  */
 
-namespace dinkydodoukwhm\whm\assetbundles\whm;
+namespace dinkydodouk\whm\assetbundles\whm;
 
 use Craft;
 use craft\web\AssetBundle;
@@ -29,7 +29,7 @@ class WHMAsset extends AssetBundle
      */
     public function init()
     {
-        $this->sourcePath = "@dinkydodoukwhm/whm/assetbundles/whm/dist";
+        $this->sourcePath = "@dinkydodouk/whm/assetbundles/whm/dist";
 
         $this->depends = [
             CpAsset::class,

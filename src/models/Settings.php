@@ -1,46 +1,30 @@
 <?php
-/**
- * WHM plugin for Craft CMS 3.x
- *
- * A link to the Dodo WHM server
- *
- * @link      https://www.dinkydodo.com
- * @copyright Copyright (c) 2020 Dodo Technologies Ltd
- */
 
-namespace dinkydodoukwhm\whm\models;
+namespace dinkydodouk\whm\models;
 
-use dinkydodoukwhm\whm\WHM;
+use dinkydodouk\whm\WHM;
 
 use Craft;
 use craft\base\Model;
 
-/**
- * @author    Dodo Technologies Ltd
- * @package   WHM
- * @since     1.0.0
- */
 class Settings extends Model
 {
-    // Public Properties
-    // =========================================================================
-
     /**
      * @var string
      */
-    public $someAttribute = 'Some Default';
+    public $whmApiKey;
+    public $hostname;
+    public $portNumber;
+    public $username;
 
-    // Public Methods
-    // =========================================================================
-
-    /**
-     * @inheritdoc
-     */
     public function rules()
     {
         return [
-            ['someAttribute', 'string'],
-            ['someAttribute', 'default', 'value' => 'Some Default'],
+            ['whmApiKey', 'string'],
+            ['hostname', 'string'],
+            ['portNumber', 'string'],
+            ['username', 'string'],
+            [['whmApiKey', 'hostname', 'portNumber', 'username'], 'required']
         ];
     }
 }

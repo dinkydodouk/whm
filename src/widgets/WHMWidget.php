@@ -8,10 +8,10 @@
  * @copyright Copyright (c) 2020 Dodo Technologies Ltd
  */
 
-namespace dinkydodoukwhm\whm\widgets;
+namespace dinkydodouk\whm\widgets;
 
-use dinkydodoukwhm\whm\WHM;
-use dinkydodoukwhm\whm\assetbundles\whmwidgetwidget\WHMWidgetWidgetAsset;
+use dinkydodouk\whm\WHM;
+use dinkydodouk\whm\assetbundles\whmwidgetwidget\WHMWidgetWidgetAsset;
 
 use Craft;
 use craft\base\Widget;
@@ -50,7 +50,7 @@ class WHMWidget extends Widget
      */
     public static function iconPath()
     {
-        return Craft::getAlias("@dinkydodoukwhm/whm/assetbundles/whmwidgetwidget/dist/img/WHMWidget-icon.svg");
+        return Craft::getAlias("@dinkydodouk/whm/assetbundles/whmwidgetwidget/dist/img/WHMWidget-icon.svg");
     }
 
     /**

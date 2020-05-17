@@ -1,16 +1,8 @@
 <?php
-/**
- * WHM plugin for Craft CMS 3.x
- *
- * A link to the Dodo WHM server
- *
- * @link      https://www.dinkydodo.com
- * @copyright Copyright (c) 2020 Dodo Technologies Ltd
- */
 
-namespace dinkydodoukwhm\whm\controllers;
+namespace dinkydodouk\whm\controllers;
 
-use dinkydodoukwhm\whm\WHM;
+use dinkydodouk\whm\WHM;
 
 use Craft;
 use craft\web\Controller;

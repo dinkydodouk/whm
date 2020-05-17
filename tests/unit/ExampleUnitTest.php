@@ -8,12 +8,12 @@
  * @copyright Copyright (c) 2020 Dodo Technologies Ltd
  */
 
-namespace dinkydodoukwhm\whmtests\unit;
+namespace dinkydodouk\whmtests\unit;
 
 use Codeception\Test\Unit;
 use UnitTester;
 use Craft;
-use dinkydodoukwhm\whm\WHM;
+use dinkydodouk\whm\WHM;
 
 /**
  * ExampleUnitTest

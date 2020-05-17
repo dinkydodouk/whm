@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2020 Dodo Technologies Ltd
  */
 
-namespace dinkydodoukwhm\whm\assetbundles\whmfieldfield;
+namespace dinkydodouk\whm\assetbundles\whmfieldfield;
 
 use Craft;
 use craft\web\AssetBundle;
@@ -29,7 +29,7 @@ class WHMFieldFieldAsset extends AssetBundle
      */
     public function init()
     {
-        $this->sourcePath = "@dinkydodoukwhm/whm/assetbundles/whmfieldfield/dist";
+        $this->sourcePath = "@dinkydodouk/whm/assetbundles/whmfieldfield/dist";
 
         $this->depends = [
             CpAsset::class,

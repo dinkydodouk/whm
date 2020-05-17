@@ -1,7 +1,6 @@
-{# @var craft \craft\web\twig\variables\CraftVariable #}
-{#
+{#}
 /**
- * WHM plugin for Craft CMS 3.x
+ * WHM plugin for Craft CMS3
  *
  * WHM Settings.twig
  *
@@ -11,16 +10,40 @@
  * @package   WHM
  * @since     1.0.0
  */
-#}
+{#}
 
 {% import "_includes/forms" as forms %}
 
-{% do view.registerAssetBundle("dinkydodoukwhm\\whm\\assetbundles\\whm\\WHMAsset") %}
+{% do view.registerAssetBundle("dinkydodouk\\whm\\assetbundles\\whm\\WHMAsset") %}
 
 {{ forms.textField({
-    label: 'Some Field',
-    instructions: 'Enter some setting here.',
-    id: 'someAttribute',
-    name: 'someAttribute',
-    value: settings['someAttribute']})
+    label: 'WHM API Key',
+    instructions: 'You need to generate an API Key from your server.',
+    id: 'whmApiKey',
+    name: 'whmApiKey',
+    value: settings['whmApiKey']})
+}}
+
+{{ forms.textField({
+    label: 'Hostname',
+    instructions: 'Enter the hostname of your server, or the IP Address.',
+    id: 'hostname',
+    name: 'hostname',
+    value: settings['hostname']})
+}}
+
+{{ forms.textField({
+    label: 'Port Number',
+    instructions: 'Enter the Port Number of your server.',
+    id: 'portNumber',
+    name: 'portNumber',
+    value: settings['portNumber']})
+}}
+
+{{ forms.textField({
+    label: 'WHM API Username',
+    instructions: 'Please enter the username for the WHM API.',
+    id: 'username',
+    name: 'username',
+    value: settings['username']})
 }}
